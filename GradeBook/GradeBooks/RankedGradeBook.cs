@@ -35,5 +35,25 @@ namespace GradeBook.GradeBooks
                 return 'D';
             return 'F'; // Failing no successful match we're in the bottom 20%. Note else and else if can be ommitted due to our shortcut returns
         }
+
+        public override void CalculateStatistics()
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
+            base.CalculateStatistics();
+        }
+
+        public override void CalculateStudentStatistics(string name)
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
+            base.CalculateStudentStatistics(name);
+        }
     }
 }
